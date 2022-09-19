@@ -15,6 +15,7 @@ namespace Test_Taste_Console_Application
     {
         static void Main(string[] args)
         {
+            Console.Title = "Taste App processing start."; 
             var serviceCollection = new ServiceCollection();
             //The ConfigureServices function configures the services.
             ConfigureServices(serviceCollection);
@@ -42,6 +43,7 @@ namespace Test_Taste_Console_Application
                 Logger.Instance.Error($"{LoggerMessage.ScreenOutputOperationFailed}{exception.Message}");
                 Console.WriteLine($"{ExceptionMessage.ScreenOutputOperationFailed}{exception.Message}");
             }
+            Console.Title = "Taste App process completed.";
 
             serviceProvider.Dispose();
         }

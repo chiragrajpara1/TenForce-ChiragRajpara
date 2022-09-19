@@ -22,6 +22,7 @@ namespace Test_Taste_Console_Application.Domain.Services
 
         public void OutputAllPlanetsAndTheirMoonsToConsole()
         {
+            Console.Title = "Loading Planet & Moon Data...";
             //The service gets all the planets from the API.
             var planets = _planetService.GetAllPlanets().ToArray();
 
@@ -40,6 +41,7 @@ namespace Test_Taste_Console_Application.Domain.Services
                 OutputString.TotalMoons
             };
 
+            Console.Title = "Wrinting Planet & Moon Data...";
             //The column sizes and labels for the moons are configured here.
             //The second moon's column needs the 2 extra '-' characters so that it's aligned with the planet's column.
             var columnSizesForMoons = new[] { 20, 70 + 2 };
@@ -101,6 +103,7 @@ namespace Test_Taste_Console_Application.Domain.Services
 
         public void OutputAllMoonsAndTheirMassToConsole()
         {
+            Console.Title = "Loading Moon Data...";
             //The function works the same way as the PrintAllPlanetsAndTheirMoonsToConsole function. You can find more comments there.
             var moons = _moonService.GetAllMoons().ToArray();
             
@@ -116,6 +119,7 @@ namespace Test_Taste_Console_Application.Domain.Services
                 OutputString.MoonNumber, OutputString.MoonId, OutputString.MoonMassExponent, OutputString.MoonMassValue
             };
 
+            Console.Title = "Writing Moon Data...";
             ConsoleWriter.CreateHeader(columnLabelsForMoons, columnSizesForMoons);
 
             for (int i = 0, j = 1; i < moons.Length; i++, j++)
@@ -145,6 +149,7 @@ namespace Test_Taste_Console_Application.Domain.Services
 
         public void OutputAllPlanetsAndTheirAverageMoonGravityToConsole()
         {
+            Console.Title = "Loading Planet Data...";
             //The function works the same way as the PrintAllPlanetsAndTheirMoonsToConsole function. You can find more comments there.
             var planets = _planetService.GetAllPlanets().ToArray();
             if (!planets.Any())
@@ -160,6 +165,7 @@ namespace Test_Taste_Console_Application.Domain.Services
             };
 
 
+            Console.Title = "Writing Planet Data...";
             ConsoleWriter.CreateHeader(columnLabels, columnSizes);
 
             foreach(Planet planet in planets)
